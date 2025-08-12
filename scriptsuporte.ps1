@@ -1,5 +1,5 @@
 #menu principal 
-$operacao = "100"
+$operacao = ""
 do{
     Write-Host "Selecione qual opração você deseja"
     Write-Host "1 - limpesa de usuarios"
@@ -56,7 +56,7 @@ function apagar_impressoeas{
             Remove-Printer -Name $imp.Name
         }
     }else{
-        Remove-Printer -Name $filtro[0].Name
+        Remove-Printer -Name $filtro[$opcao].Name
     }
 
 }
@@ -112,7 +112,7 @@ function impressoras_bug_win{
 
 function limpesa_de_usuarios {
     Write-Host "Limpesa de usuarios"
-    Write-Host "Digite o numero de dias de inatividade (defalt 90 dias)"
+    Write-Host "Digite o numero de dias de inatividade (default 90 dias)"
     [int]$diasInativo = Read-Host
     if($diasInativo -eq 0){
         $diasInativo = 90
